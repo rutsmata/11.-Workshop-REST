@@ -14,3 +14,6 @@
 14. we will not receive the reques on the server as the browser will detect it is already directed to another server and will hit error CORS
 15. in index.js we should set headers on our server, using mdw, to allow our server to receive requests from anywhere. Alternative is to install npm i cors and require it right after the express require. We should be able to receive the data but can not read it
 16. Add body-parser and json-parser mdw and we can read the data sent to us
+17. Add models folder with User and Furniture
+18. Create relevant Model schemas using mongoose
+19. At User Model add bcrypt, use async-await function to hash the password before save using salt 10
