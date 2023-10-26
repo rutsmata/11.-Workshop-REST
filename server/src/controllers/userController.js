@@ -1,8 +1,16 @@
 const router = require("express").Router();
+const userService = require("../services/userService");
 
-router.post('/register', (req, res) => {
-   console.log(req.body);
-   res.send('OK') 
-})
+router.post("/register", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    await userService.register({ email, password });
+    
+    res.json({message: 'Successful registration!'})
+  } catch ({ message }) {
+    res.status(400).json({ message });
+  }
+});
 
 module.exports = router;

@@ -16,4 +16,9 @@
 16. Add body-parser and json-parser mdw and we can read the data sent to us
 17. Add models folder with User and Furniture
 18. Create relevant Model schemas using mongoose
-19. At User Model add bcrypt, use async-await function to hash the password before save using salt 10
+19. At User Model add relevant properties; require bcrypt, use async-await function to hash the password before save using salt 10
+20. At Furniture Model add the respective properties, and final one should be a link to the User model by _ownerId
+21. Add services folder with user and furniture
+22. Create register functionality
+23. Set-up db
+24. Test if register is working properly

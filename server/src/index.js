@@ -1,10 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
 
 const routes = require("./routes");
 
 const app = express();
 const PORT = 3030;
+
+// DB Configuration
+mongoose
+  .connect("mongodb://127.0.0.1:27017/furnitures")
+  .then(() => console.log(`Successfully connected to DB`))
+  .catch((err) => console.log(`Error while connecting to DB!`, err));
 
 //Middlewares
 app.use(express.urlencoded({ extended: false })); // body-parser for urlencoded, querystring
