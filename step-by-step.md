@@ -22,3 +22,6 @@
 22. Create register functionality
 23. Set-up db
 24. Test if register is working properly
+25. Implement login
+26. Implement logout
+27. Add auth middleware

@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const routes = require("./routes");
+const {auth} = require('./middlewares/authMiddleware')
 
 const app = express();
 const PORT = 3030;
@@ -13,10 +14,11 @@ mongoose
   .then(() => console.log(`Successfully connected to DB`))
   .catch((err) => console.log(`Error while connecting to DB!`, err));
 
-//Middlewares
+// Middlewares
 app.use(express.urlencoded({ extended: false })); // body-parser for urlencoded, querystring
 app.use(express.json()); // json parse: application/json -> AJAX requests
 app.use(cors()); // avoid CORS;
+app.use(auth)
 
 // alternative code
 // app.use((req, res, next) => {
