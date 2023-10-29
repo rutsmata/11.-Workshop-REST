@@ -39,6 +39,26 @@ router.get("/:furnitureId", async (req, res) => {
   }
 });
 
-
+router.put("/:furnitureId", async (req, res) => {
+  try {
+    const { description, img, make, material, model, price, year } = req.body;
+    const furnitureData = {
+      description,
+      img,
+      make,
+      material,
+      model,
+      price,
+      year,
+      _ownerId: req.user._id, // owner info is within the req.user, hence we add it as a property
+    };
+    const { furnitureId } = req.params;
+    const furniture = await furnitureService.update(furnitureId, furnitureData);
+    res.status(200).end();
+    
+  } catch ({ message }) {
+    res.status(400).json({ message });
+  }
+});
 
 module.exports = router;
