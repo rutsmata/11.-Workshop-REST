@@ -3,7 +3,8 @@ const furnitureService = require("../services/furnitureService");
 
 router.get("/", async (req, res) => {
   try {
-    const furnitures = await furnitureService.getAll();
+    const query = req.query
+    const furnitures = await furnitureService.getAll(query);
     res.json(furnitures);
   } catch ({ message }) {
     res.status(400).json({ message });
@@ -65,7 +66,7 @@ router.delete("/:furnitureId", async (req, res) => {
     const { furnitureId } = req.params;
     await furnitureService.delete(furnitureId);
     res.status(200).end();
-    
+
   } catch ({ message }) {
     res.status(400).json({ message });
   }
